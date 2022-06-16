@@ -8,7 +8,7 @@
         Błąd wczytywania, spróbuj później...
     {% else %}
 
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron {{ category_color }}">
         <div class = container>
             <h1 class="display-4">Aktualna pogoda Poznań {{ api.0.LocalObservationDateTime }}</h1>
             <p class="lead">Warunki pogodowe: {{ api.0.WeatherText }}</p>
@@ -16,7 +16,7 @@
             <p> Temperatura: {{ api.0.Temperature.Metric.Value }}  &deg{{ api.0.Temperature.Metric.Unit }}</br>
                 Temperatura odczuwalna: {{ api.0.RealFeelTemperature.Metric.Value }}  &deg{{ api.0.RealFeelTemperature.Metric.Unit }}</br>
                 Zachmurzenie: {{ api.0.CloudCover }}%</br>
-                Wiatr: {{ api.0.Wind.Direction.Degrees }} {{ api.0.Wind.Speed.Metric.Value }} {{ api.0.Wind.Speed.Metric.Unit }}</br>
+                Wiatr: {{ api.0.Wind.Direction.English }} {{ api.0.Wind.Speed.Metric.Value }} {{ api.0.Wind.Speed.Metric.Unit }}</br>
                 Ciśnienie: {{ api.0.Pressure.Metric.Value }} {{ api.0.Pressure.Metric.Unit }} {{ api.0.Wind.PressureTendency.LocalizedText }}</br>
             </p>
             <p>{{ api.0.Link }}</p>

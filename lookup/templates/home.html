@@ -10,7 +10,7 @@
 
     <div class="jumbotron {{ category_color }}">
         <div class = container>
-            <h1 class="display-4">Aktualna pogoda Poznań {{ api.0.LocalObservationDateTime }}</h1>
+            <h1 class="display-4">Aktualna pogoda {{ city }} {{ api.0.LocalObservationDateTime }}</h1>
             <p class="lead">Warunki pogodowe: {{ api.0.WeatherText }}</p>
             <hr class="my-4">
             <p> Temperatura: {{ api.0.Temperature.Metric.Value }}  &deg{{ api.0.Temperature.Metric.Unit }}</br>
@@ -19,9 +19,13 @@
                 Wiatr: {{ api.0.Wind.Direction.English }} {{ api.0.Wind.Speed.Metric.Value }} {{ api.0.Wind.Speed.Metric.Unit }}</br>
                 Ciśnienie: {{ api.0.Pressure.Metric.Value }} {{ api.0.Pressure.Metric.Unit }} {{ api.0.Wind.PressureTendency.LocalizedText }}</br>
             </p>
-            <p>{{ api.0.Link }}</p>
+            <p style="color:grey; font-size:80%">{{ api.0.Link }}</p>
         </div>
       </div>
+      <div>
+        </p>Dostępne miasta: Poznań * Gdańsk * Kraków * Szczecin * Wrocław * Warszawa</p>
+      </div>
+    
              
     {% endif %}
 {% endif %}

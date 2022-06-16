@@ -13,10 +13,10 @@
       .clear {background-color:#f7dc6f;}
       .cloudy {background-color:#d5d8dc;}
       .fall {background-color:#85929e;}
-      .hot {background-color: #f1948a;}
-      .cold {background-color:  #aed6f1;}
-      .windy {background-color:  #d0ece7;}
-      .neutral {background-color:   #a3e4d7;}
+      .hot {background-color:#f1948a;}
+      .cold {background-color:#aed6f1;}
+      .windy {background-color:#d0ece7;}
+      .neutral {background-color:#a3e4d7;}
     </style>
 
   </head>
@@ -34,9 +34,11 @@
                 <a class="nav-link" href="{% url 'about' %}">About Me</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-secondary" type="submit">Search</button>
+            <form action = "{% url 'home' %}" class="d-flex" method = "POST">
+                {% csrf_token %}
+              <input class="form-control me-2" type="search" placeholder="Miasto" 
+                  aria-label="Search" name="city">
+              <button class="btn btn-outline-secondary" type="submit">Lookup</button>
             </form>
           </div>
         </div>

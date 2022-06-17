@@ -8,24 +8,48 @@
         Błąd wczytywania, spróbuj później...
     {% else %}
 
-    <div class="jumbotron {{ category_color }}">
-        <div class = container>
-            <h1 class="display-4">Aktualna pogoda {{ city }} {{ api.0.LocalObservationDateTime }}</h1>
-            <p class="lead">Warunki pogodowe: {{ api.0.WeatherText }}</p>
-            <hr class="my-4">
-            <p> Temperatura: {{ api.0.Temperature.Metric.Value }}  &deg{{ api.0.Temperature.Metric.Unit }}</br>
-                Temperatura odczuwalna: {{ api.0.RealFeelTemperature.Metric.Value }}  &deg{{ api.0.RealFeelTemperature.Metric.Unit }}</br>
-                Zachmurzenie: {{ api.0.CloudCover }}%</br>
-                Wiatr: {{ api.0.Wind.Direction.English }} {{ api.0.Wind.Speed.Metric.Value }} {{ api.0.Wind.Speed.Metric.Unit }}</br>
-                Ciśnienie: {{ api.0.Pressure.Metric.Value }} {{ api.0.Pressure.Metric.Unit }} {{ api.0.Wind.PressureTendency.LocalizedText }}</br>
-            </p>
-            <p style="color:grey; font-size:80%">{{ api.0.Link }}</p>
+    
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6 col-xl-4">
+  
+          <div class="card" style="color: #4B515D; border-radius: 35px; background-color: #EAE1C8">
+            <div class="card-body p-4">
+  
+              <div class="d-flex">
+                <h6 class="flex-grow-1">{{ city }}</h6>
+                <h6>{{ date_time }}</h6>
+              </div>
+  
+              <div class="d-flex flex-column text-center mt-5 mb-4">
+                <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> {{ api.0.Temperature.Metric.Value }}  &deg{{ api.0.Temperature.Metric.Unit }} </h6>
+                <h4 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> Odczuwalna: {{ api.0.RealFeelTemperature.Metric.Value }}  &deg{{ api.0.RealFeelTemperature.Metric.Unit }} </h4>
+                <span class="small {{ category_color }} font-weight-bold"> {{ api.0.WeatherText }} </span>
+              </div>
+  
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1" style="font-size: 1rem;">
+                  <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> Wiatr: {{ api.0.Wind.Direction.English }} {{ api.0.Wind.Speed.Metric.Value }} {{ api.0.Wind.Speed.Metric.Unit }}
+                    </span></div>
+                  <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1"> Zachmurzenie: {{ api.0.CloudCover }}% </span>
+                  </div>
+                  <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> Ciśnienie: {{ api.0.Pressure.Metric.Value }} {{ api.0.Pressure.Metric.Unit }} {{ api.0.Wind.PressureTendency.LocalizedText }} </span>
+                  </div>
+                </div>
+                <div>
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                    width="100px">
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
         </div>
       </div>
-      <div>
-        </p>Dostępne miasta: Poznań * Gdańsk * Kraków * Szczecin * Wrocław * Warszawa</p>
-      </div>
     
+    <div>
+        </p>Dostępne miasta: Poznań * Gdańsk * Kraków * Szczecin * Wrocław * Warszawa</p>
+    </div>
              
     {% endif %}
 {% endif %}

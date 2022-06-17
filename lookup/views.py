@@ -4,6 +4,8 @@ from requests.api import post
 def home(request):
     import json
     import requests
+    from datetime import datetime
+    from datetime import timezone
 
     city_code = '276594'
     city = 'Poznań'
@@ -32,6 +34,13 @@ def home(request):
     except Exception as e:
         api = "Error..."
 
+    dt = datetime.fromisoformat(api[0]['LocalObservationDateTime']).astimezone(timezone.utc)
+    date_time = dt.strftime('%Y-%m-%d %H:%M:%S')
+
+    if api[0]['IsDayTime'] == True:
+        day_color = 'day'
+    else: day_color = "night"
+
     if api[0]['WeatherIcon'] <= 3:
         category_color = 'clear'
     elif (api[0]['WeatherIcon'] >= 4)&(api[0]['WeatherIcon'] <=11):
@@ -52,7 +61,7 @@ def home(request):
         category_color = 'cloudy'
     else: category_color = 'neutral'
         
-    return render(request, 'home.html', {'api': api, 
+    return render(request, 'home.html', {'api': api, 'date_time': date_time , 'day_color': day_color,
                         'category_color': category_color, 'city': city, 'city_code': city_code})
 
 def about(request):

@@ -3,4 +3,4 @@ A simple weather application (basing on Codemy.com tutorial, but with improved f
  - uses Bootstrap
  - takes advantage of AccuWeather.com API.
  
-Apllication served on AWS Platform and available on: http://52.51.2.240:8000/
+Application served by AWS and available on: http://52.51.2.240:8000/
